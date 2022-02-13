@@ -93,25 +93,17 @@ public class Player : MonoBehaviour
             switch (plate.GetPlateState())
             {
                 case PlateState.FinishZone:
-                    if(!isWin)
-                        OnWin?.Invoke();
+                    if(!isWin) OnWin?.Invoke();
                     break;
                 case PlateState.DeathZone:
-                    if (StatusPlayer == StatusPlayer.None)
-                    {
-                        OnDie?.Invoke();
-                        
-                    }
-
+                    if (StatusPlayer == StatusPlayer.None) OnDie?.Invoke();
                     break;
-
             }
         }
     }
 
     private void Win()
-    {
-        
+    {        
         isWin = true;
         Instantiate(winEffect, transform.position, Quaternion.identity);
     }
@@ -119,6 +111,5 @@ public class Player : MonoBehaviour
     private void Die()
     {
         Instantiate(deathEffect, transform.position, Quaternion.identity);
-        
     }
 }
